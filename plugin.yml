@@ -1,0 +1,4 @@
+name: StatFacts
+version: 1.0
+description: Tracks random, unique, and interesting statistics about the server and broadcasts them on an interval.
+main: org.vanillaplus.statfacts.StatFacts
