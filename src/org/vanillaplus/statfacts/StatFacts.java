@@ -13,4 +13,9 @@ public class StatFacts extends JavaPlugin{
 	public void onDisable(){
 		Bukkit.getServer().broadcastMessage(ChatColor.RED + "StatFacts has been disabled!");
 	}
+	
+	//Register Events Here
+	public void registerEvents(){
+		
+	}
 }
