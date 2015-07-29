@@ -18,7 +18,7 @@ public class BroadcastingManager {
 	public static Stat getRandomStat() {
 		Random rand = new Random();
 		int index = rand.nextInt(stats.size());
-		
+
 		return stats.get(index);
 	}
 	
