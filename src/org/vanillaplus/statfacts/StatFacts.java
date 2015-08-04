@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.NewestPlayerListener;
 import org.vanillaplus.statfacts.listeners.EntityDeathListener;
+import org.vanillaplus.statfacts.listeners.TNTLitListener;
 import org.vanillaplus.statfacts.managers.*;
 import org.vanillaplus.statfacts.tasks.BroadcastTask;
 
@@ -16,6 +17,7 @@ public class StatFacts extends JavaPlugin{
 	TotalZombiesKilledManager totalZombiesKilledManager = new TotalZombiesKilledManager();
 	NewestPlayerManager newestPlayerManager = new NewestPlayerManager();
 	TotalSquidsKilledManager totalSquidsKilledManger = new TotalSquidsKilledManager();
+	TotalTNTLitManager totalTNTLitManager = new TotalTNTLitManager();
 	
 	public void onEnable(){
 		//Sets up data file
@@ -36,6 +38,7 @@ public class StatFacts extends JavaPlugin{
 	public void registerEvents(){
 		Bukkit.getServer().getPluginManager().registerEvents(new EntityDeathListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new NewestPlayerListener(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new TNTLitListener(), this);
 	}
 	
 	//Initialize the BroadcastingManger for use here.
@@ -43,6 +46,7 @@ public class StatFacts extends JavaPlugin{
 		totalZombiesKilledManager.initBroadcastingList();
 		newestPlayerManager.initBroadcastingList();
 		totalSquidsKilledManger.initBroadcastingList();
+		totalTNTLitManager.initBroadcastingList();
 		
 	}
 	
@@ -51,5 +55,6 @@ public class StatFacts extends JavaPlugin{
 		totalZombiesKilledManager.initConfig();
 		newestPlayerManager.initConfig();
 		totalSquidsKilledManger.initConfig();
+		totalTNTLitManager.initConfig();
 	}
 }
