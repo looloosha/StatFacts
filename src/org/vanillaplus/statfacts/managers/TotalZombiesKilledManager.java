@@ -11,7 +11,7 @@ public class TotalZombiesKilledManager extends Stat{
 	
 	@Override
 	public void broadcastStatMessage() {
-		Bukkit.getServer().broadcastMessage(ChatColor.GOLD  +  "" + ChatColor.BOLD + settings.getData().get("stats." + getStatTag()) + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + " zombies brains have been smashed");
+		Bukkit.getServer().broadcastMessage(ChatColor.GOLD  +  "" + ChatColor.BOLD + settings.getData().get("stats." + getStatTag()) + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + " zombie brains have been smashed");
 	}
 	
 	//Must have this method and call it in the initBroadcastingManger method in the StatFacts class.

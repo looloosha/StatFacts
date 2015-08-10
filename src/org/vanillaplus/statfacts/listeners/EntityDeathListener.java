@@ -1,12 +1,14 @@
 package org.vanillaplus.statfacts.listeners;
 
 
+import org.bukkit.entity.Horse;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Squid;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.vanillaplus.statfacts.managers.TotalHorsesKilledManager;
 import org.vanillaplus.statfacts.managers.TotalSquidsKilledManager;
 import org.vanillaplus.statfacts.managers.TotalZombiesKilledManager;
 
@@ -26,6 +28,13 @@ public class EntityDeathListener implements Listener{
 			
 			if(squid.getKiller() instanceof Player){
 				TotalSquidsKilledManager.incrementSquidDeathCount();
+			}
+		}
+		if(e.getEntity() instanceof Horse){
+			Horse horse = (Horse) e.getEntity();
+			
+			if(horse.getKiller() instanceof Player){
+				TotalHorsesKilledManager.incrementHorseDeathCount();
 			}
 		}
 			
