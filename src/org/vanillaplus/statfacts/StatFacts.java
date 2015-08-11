@@ -6,6 +6,7 @@ import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.NewestPlayerListener;
 import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.PaintingPlacedListener;
+import org.vanillaplus.statfacts.listeners.PlayerDeathListener;
 import org.vanillaplus.statfacts.listeners.PlayerStatisticIncrementListener;
 import org.vanillaplus.statfacts.listeners.TNTLitListener;
 import org.vanillaplus.statfacts.managers.*;
@@ -23,6 +24,7 @@ public class StatFacts extends JavaPlugin{
 	TotalHorsesKilledManager totalHorsesKilledManager = new TotalHorsesKilledManager();
 	PaintingsPlacedManager paintingsPlacedManager = new PaintingsPlacedManager();
 	MostAnimalsBredManager mostAnimalsBredManager = new MostAnimalsBredManager();
+	MostPlayersKilledManager mostPlayersKilledManager = new MostPlayersKilledManager();
 	
 	public void onEnable(){
 		//Sets up data file
@@ -46,6 +48,7 @@ public class StatFacts extends JavaPlugin{
 		Bukkit.getServer().getPluginManager().registerEvents(new TNTLitListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new PaintingPlacedListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerStatisticIncrementListener(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
 	}
 	
 	//Initialize the BroadcastingManger for use here.
@@ -56,6 +59,7 @@ public class StatFacts extends JavaPlugin{
 		totalTNTLitManager.initBroadcastingList();
 		totalHorsesKilledManager.initBroadcastingList();
 		paintingsPlacedManager.initBroadcastingList();
+		mostPlayersKilledManager.initBroadcastingList();
 		
 	}
 	
@@ -68,5 +72,6 @@ public class StatFacts extends JavaPlugin{
 		totalHorsesKilledManager.initConfig();
 		mostAnimalsBredManager.initConfig();
 		paintingsPlacedManager.initConfig();
+		mostPlayersKilledManager.initConfig();
 	}
 }

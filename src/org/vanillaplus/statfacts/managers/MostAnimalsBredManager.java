@@ -31,7 +31,7 @@ public class MostAnimalsBredManager extends Stat{
 	}
 	
 	@Override
-	public void initBroadcastingList(){
+	public void initBroadcastingList() {
 		BroadcastingManager.putStat(this);
 	}
 	

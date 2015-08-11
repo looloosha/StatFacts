@@ -16,6 +16,8 @@ public class EntityDeathListener implements Listener{
 	
 	@EventHandler
 	public void onZombieDeathEvent(EntityDeathEvent e){
+		
+		//Zombie Death
 		if (e.getEntity() instanceof Zombie){
 			Zombie zombie = (Zombie) e.getEntity();
 			
@@ -23,6 +25,8 @@ public class EntityDeathListener implements Listener{
 				TotalZombiesKilledManager.incrementZombieDeathCount();
 			}
 		}
+		
+		//Squid Death
 		if(e.getEntity() instanceof Squid){
 			Squid squid = (Squid) e.getEntity();
 			
@@ -30,6 +34,8 @@ public class EntityDeathListener implements Listener{
 				TotalSquidsKilledManager.incrementSquidDeathCount();
 			}
 		}
+		
+		//Horse Death
 		if(e.getEntity() instanceof Horse){
 			Horse horse = (Horse) e.getEntity();
 			
