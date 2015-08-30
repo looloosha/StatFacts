@@ -6,6 +6,7 @@ import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.NewestPlayerListener;
 import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.PaintingPlacedListener;
+import org.vanillaplus.statfacts.listeners.PlayerConsumeListener;
 import org.vanillaplus.statfacts.listeners.PlayerDeathListener;
 import org.vanillaplus.statfacts.listeners.PlayerStatisticIncrementListener;
 import org.vanillaplus.statfacts.listeners.TNTLitListener;
@@ -25,6 +26,8 @@ public class StatFacts extends JavaPlugin{
 	PaintingsPlacedManager paintingsPlacedManager = new PaintingsPlacedManager();
 	MostAnimalsBredManager mostAnimalsBredManager = new MostAnimalsBredManager();
 	MostPlayersKilledManager mostPlayersKilledManager = new MostPlayersKilledManager();
+	TotalGlobalDeathsManager totalGlobablDeathsManager = new TotalGlobalDeathsManager();
+	MostPotatosEatenManager mostPotatosEatenManager = new MostPotatosEatenManager();
 	
 	public void onEnable(){
 		//Sets up data file
@@ -49,17 +52,22 @@ public class StatFacts extends JavaPlugin{
 		Bukkit.getServer().getPluginManager().registerEvents(new PaintingPlacedListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerStatisticIncrementListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerConsumeListener(), this);
 	}
 	
 	//Initialize the BroadcastingManger for use here.
 	public void initBroadcastingManager(){
-		totalZombiesKilledManager.initBroadcastingList();
-		newestPlayerManager.initBroadcastingList();
-		totalSquidsKilledManger.initBroadcastingList();
-		totalTNTLitManager.initBroadcastingList();
-		totalHorsesKilledManager.initBroadcastingList();
-		paintingsPlacedManager.initBroadcastingList();
-		mostPlayersKilledManager.initBroadcastingList();
+		//totalZombiesKilledManager.initBroadcastingList();
+		//newestPlayerManager.initBroadcastingList();
+		//totalSquidsKilledManger.initBroadcastingList();
+		//totalTNTLitManager.initBroadcastingList();
+		//totalHorsesKilledManager.initBroadcastingList();
+		//paintingsPlacedManager.initBroadcastingList();
+		//mostAnimalsBredManager.initBroadcastingList();
+		//mostPlayersKilledManager.initBroadcastingList();
+		//totalGlobablDeathsManager.initBroadcastingList();
+		mostPotatosEatenManager.initBroadcastingList();
+		
 		
 	}
 	
@@ -73,5 +81,7 @@ public class StatFacts extends JavaPlugin{
 		mostAnimalsBredManager.initConfig();
 		paintingsPlacedManager.initConfig();
 		mostPlayersKilledManager.initConfig();
+		totalGlobablDeathsManager.initConfig();
+		mostPotatosEatenManager.initConfig();
 	}
 }
