@@ -1,6 +1,7 @@
 package org.vanillaplus.statfacts;
 
 import org.bukkit.Bukkit;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.NewestPlayerListener;
@@ -8,6 +9,7 @@ import org.vanillaplus.statfacts.listeners.EntityDeathListener;
 import org.vanillaplus.statfacts.listeners.PaintingPlacedListener;
 import org.vanillaplus.statfacts.listeners.PlayerConsumeListener;
 import org.vanillaplus.statfacts.listeners.PlayerDeathListener;
+import org.vanillaplus.statfacts.listeners.PlayerInteractListener;
 import org.vanillaplus.statfacts.listeners.PlayerStatisticIncrementListener;
 import org.vanillaplus.statfacts.listeners.TNTLitListener;
 import org.vanillaplus.statfacts.managers.*;
@@ -28,6 +30,7 @@ public class StatFacts extends JavaPlugin{
 	MostPlayersKilledManager mostPlayersKilledManager = new MostPlayersKilledManager();
 	TotalGlobalDeathsManager totalGlobablDeathsManager = new TotalGlobalDeathsManager();
 	MostPotatosEatenManager mostPotatosEatenManager = new MostPotatosEatenManager();
+	MostCakeSlicesEatenManager mostCakeSlicesEatenManger = new MostCakeSlicesEatenManager();
 	
 	public void onEnable(){
 		//Sets up data file
@@ -53,6 +56,7 @@ public class StatFacts extends JavaPlugin{
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerStatisticIncrementListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
 		Bukkit.getServer().getPluginManager().registerEvents(new PlayerConsumeListener(), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 	}
 	
 	//Initialize the BroadcastingManger for use here.
@@ -67,8 +71,7 @@ public class StatFacts extends JavaPlugin{
 		//mostPlayersKilledManager.initBroadcastingList();
 		//totalGlobablDeathsManager.initBroadcastingList();
 		mostPotatosEatenManager.initBroadcastingList();
-		
-		
+		mostCakeSlicesEatenManger.initBroadcastingList();
 	}
 	
 	//Initialize config sections for individual stats here.
@@ -83,5 +86,6 @@ public class StatFacts extends JavaPlugin{
 		mostPlayersKilledManager.initConfig();
 		totalGlobablDeathsManager.initConfig();
 		mostPotatosEatenManager.initConfig();
+		mostCakeSlicesEatenManger.initConfig();
 	}
 }

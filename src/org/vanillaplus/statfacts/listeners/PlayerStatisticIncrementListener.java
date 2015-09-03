@@ -13,6 +13,7 @@ public class PlayerStatisticIncrementListener implements Listener{
 		if(e.getStatistic() == Statistic.ANIMALS_BRED) {
 			MostAnimalsBredManager.updatePlayerBreederStat(e.getPlayer().getName());
 		}
+		
 	}
 
 }
